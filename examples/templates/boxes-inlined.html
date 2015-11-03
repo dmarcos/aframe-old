@@ -3,18 +3,18 @@
   <head>
     <meta charset="utf-8">
     <title>Templated boxes (inlined)</title>
-    <meta name="description" content="Templated boxes (inlined) vr-component">
+    <meta name="description" content="Templated boxes (inlined) a-component">
     <script src="../../build/vr-components.js"></script>
   </head>
   <body>
-    <template is="vr-template" element="vr-box" color="cyan">
-      <vr-object geometry="primitive: box" material="color: ${color}"></vr-object>
+    <template is="a-template" element="a-box" color="cyan">
+      <a-object geometry="primitive: box" material="color: ${color}"></a-object>
     </template>
 
-    <vr-scene>
-      <vr-object camera="fov: 45" position="0 0 20" controls="mouselook: true; locomotion: true"></vr-object>
-      <vr-box color="hotpink" position="-10 0 0" scale=".5 .5 .5"></vr-box>
-      <vr-box color="cyan" position="1 -3 0" rotation="25 -45 0"></vr-box>
-    </vr-scene>
+    <a-scene>
+      <a-object camera="fov: 45" position="0 0 20" controls="mouselook: true; locomotion: true"></a-object>
+      <a-box color="hotpink" position="-10 0 0" scale=".5 .5 .5"></a-box>
+      <a-box color="cyan" position="1 -3 0" rotation="25 -45 0"></a-box>
+    </a-scene>
   </body>
 </html>

@@ -5,7 +5,7 @@ var registerElement = VRMarkup.registerElement.registerElement;
 var VRObject = VRMarkup.VRObject;
 var VRUtils = VRMarkup.utils;
 
-registerElement('vr-root', {prototype: Object.create(VRObject.prototype)});
+registerElement('a-root', {prototype: Object.create(VRObject.prototype)});
 
 module.exports = function (tagName) {
   var tagNameLower = tagName.toLowerCase();
@@ -21,7 +21,7 @@ module.exports = function (tagName) {
           attachedCallback: {
             value: function () {
               VRUtils.log('<%s> injected (%.4f ms)', tagName, window.performance.now() - perfStart);
-              // We emit an event so `<vr-object>` knows when we've been
+              // We emit an event so `<a-object>` knows when we've been
               // registered and adds our children as `object3D`s.
               this.emit('nodeready');
               this.rerender();
@@ -39,7 +39,7 @@ module.exports = function (tagName) {
           detachedCallback: {
             value: function () {
               if (!this.sceneEl) {
-                this.sceneEl = utils.$('vr-scene');
+                this.sceneEl = utils.$('a-scene');
               }
               this.sceneEl.remove(this);
             },
@@ -49,10 +49,10 @@ module.exports = function (tagName) {
           rerender: {
             value: function (force) {
               if (!force && this.lastOuterHTML === this.outerHTML) { return; }
-              var template = utils.$('template[is="vr-template"][element="' + tagName + '"]');
+              var template = utils.$('template[is="a-template"][element="' + tagName + '"]');
               if (!template) { return; }
 
-              // Use the defaults defined on the original `<template is="vr-template">`.
+              // Use the defaults defined on the original `<template is="a-template">`.
               var templateAttrs = utils.mergeAttrs(template, this);
               Object.keys(templateAttrs).filter(function (key) {
                 var value = templateAttrs[key];
@@ -63,11 +63,11 @@ module.exports = function (tagName) {
               }, this);
 
               this.root = utils.$$(this.children).filter(function (el) {
-                return el.tagName.toLowerCase() === 'vr-root';
+                return el.tagName.toLowerCase() === 'a-root';
               })[0];
 
               if (!this.root) {
-                this.root = document.createElement('vr-root');
+                this.root = document.createElement('a-root');
                 this.appendChild(this.root);
               }
 

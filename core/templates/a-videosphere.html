@@ -1,5 +1,5 @@
-<template is="vr-template"
-          element="vr-videosphere"
+<template is="a-template"
+          element="a-videosphere"
           src=""
           radius="5000"
           segments-width="32"
@@ -16,11 +16,11 @@
           crossOrigin="${crossOrigin}"
           style="display:none;">
   </video>
-  <vr-object geometry="primitive: sphere;
+  <a-object geometry="primitive: sphere;
                        radius: ${radius};
                        segmentsWidth: ${segments-width};
                        segmentsHeight: ${segments-height};"
              material="src: #video;"
              scale="-1 1 1">
-  </vr-object>
+  </a-object>
 </template>

@@ -19,7 +19,7 @@ function injectFromPolyfilledImports () {
 
   Object.keys(HTMLImports.importer.documents).forEach(function (key) {
     var doc = HTMLImports.importer.documents[key];
-    utils.$$('template[is="vr-template"]', doc).forEach(function (template) {
+    utils.$$('template[is="a-template"]', doc).forEach(function (template) {
       var templateEl = document.importNode(template, true);
       document.body.appendChild(templateEl);
     });
@@ -27,7 +27,7 @@ function injectFromPolyfilledImports () {
 }
 
 function runAfterSceneLoaded (cb) {
-  var sceneEl = utils.$('vr-scene');
+  var sceneEl = utils.$('a-scene');
   if (!sceneEl) { return; }
   if (sceneEl.hasLoaded) {
     cb(sceneEl);
@@ -39,9 +39,9 @@ function runAfterSceneLoaded (cb) {
 }
 
 module.exports = registerElement(
-  'vr-template',
+  'a-template',
   {
-    extends: 'template',  // This lets us do `<template is="vr-template">`.
+    extends: 'template',  // This lets us do `<template is="a-template">`.
     prototype: Object.create(
       HTMLTemplateElement.prototype,
       {

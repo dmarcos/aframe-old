@@ -9,7 +9,7 @@ function getHtmlFilename () {
   var scriptEl = document.querySelector('script[data-vr-components-html]');
   var htmlFilename;
   if (scriptEl) {
-    htmlFilename = scriptEl.dataset.vrComponentsHtml;
+    htmlFilename = scriptEl.dataset.aframeComponentsHtml;
   }
   if (!htmlFilename) {
     scriptEl = document.querySelector('script[src*="vr-components."]');

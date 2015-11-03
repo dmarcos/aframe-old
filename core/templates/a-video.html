@@ -1,5 +1,5 @@
-<template is="vr-template"
-          element="vr-video"
+<template is="a-template"
+          element="a-video"
           src=""
           width="4"
           height="2"
@@ -15,9 +15,9 @@
           crossOrigin="${crossOrigin}"
           style="display:none;">
   </video>
-  <vr-object geometry="primitive: plane;
+  <a-object geometry="primitive: plane;
                        height: ${height};
                        width: ${width};"
              material="src: #video;">
-  </vr-object>
+  </a-object>
 </template>
